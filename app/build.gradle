@@ -1,0 +1,99 @@
+// Apply the java and application plugins to add support for Java
+plugins {
+    id 'java'
+    id 'application'
+    id 'jacoco' // Apply the jacoco plugin for code coverage
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.testng', name: 'testng', version: '7.10.0'
+ 
+
+    // https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.2'
+    
+       implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.19.1'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.8.0'
+    // https://mvnrepository.com/artifact/com.relevantcodes/extentreports
+    implementation group: 'com.relevantcodes', name: 'extentreports' , version: '2.40.2'
+}
+
+test {
+    useTestNG {
+        useDefaultListeners = true // Generates the test report
+        suites 'src/test/resources/testNG.xml'
+    }
+
+    // Printing the test result summary
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println "\nTEST RESULT: ${result.resultType}"
+            println "TEST SUMMARY: RAN ${result.testCount} TESTS, " +
+                    "${result.successfulTestCount} SUCCEEDED, " +
+                    "${result.failedTestCount} FAILED, " +
+                    "${result.skippedTestCount} SKIPPED"
+        }
+    }
+
+    // Test logging configuration
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+        exceptionFormat = 'full'
+        showStackTraces = true
+        showStandardStreams = true
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.10" // Set JaCoCo version
+}
+
+jacocoTestReport {
+    dependsOn test // Ensure tests are run before generating the report
+    mustRunAfter startScripts 
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.required.set(true) // Generate HTML report
+        html.outputLocation.set(layout.buildDirectory.dir('jacocoHtml'))
+    }
+
+    // Exclude main classes and only include test classes
+    sourceDirectories.setFrom(files('src/test/java'))
+    classDirectories.setFrom(fileTree(dir: 'build/classes/java/test').files)
+    executionData.setFrom(fileTree(dir: buildDir, includes: ['**/jacoco/test.exec']))
+
+    doLast {
+        println "JaCoCo report generated. Check the HTML report in build/jacocoHtml."
+    }
+}
+
+// task printClassDirs {
+//     doLast {
+//         tasks.named("jacocoTestReport").configure { jacocoTask ->
+//             println "Source directories: ${jacocoTask.sourceDirectories.files.collect { it.path }}"
+//             println "Class directories: ${jacocoTask.classDirectories.files.collect { it.path }}"
+//             println "Execution data files: ${jacocoTask.executionData.files.collect { it.path }}"
+//         }
+//     }
+// }
+
+// jacocoTestReport.finalizedBy(tasks.named("printClassDirs"))
+
+// jacocoTestReport.finalizedBy(printClassDirs)
+
+application {
+    mainClass = 'demo.App' // Replace with your actual main class
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+}
