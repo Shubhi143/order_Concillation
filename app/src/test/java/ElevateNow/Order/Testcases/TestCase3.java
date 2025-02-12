@@ -34,7 +34,7 @@ public class TestCase3 {
                            // signInPage = new SignIn(driver);
                             ReportSingleton rs1 = ReportSingleton.getInstanceOfSingletonReportClass();
                             report = rs1.getReport();
-                            test = report.startTest("Order Concillation Test Suite");
+                            test = report.startTest("Add Order Test Suite");
                         }
                          
                         

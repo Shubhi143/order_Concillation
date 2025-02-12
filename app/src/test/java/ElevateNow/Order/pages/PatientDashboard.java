@@ -169,7 +169,7 @@ Thread.sleep(5000);
         Thread.sleep(5000);
         addDiagonsis.sendKeys("test");
         Thread.sleep(5000);
-        searchMedicine.sendKeys("Paracetamol Tablet");
+        searchMedicine.sendKeys("Blinknac P Tablet");
         Thread.sleep(5000);
        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[2]/div[4]/input")).click();
        addAdvice.sendKeys("test");

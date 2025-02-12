@@ -26,7 +26,8 @@ private WebElement pendingStatus;
 @FindBy(xpath = "//button[text()='Select']")
 private WebElement selectVendor;
     
-    @FindBy(xpath = "//*[@id='root']/div[2]/div[3]/div/div[3]/div/div/div[2]/div[2]")
+    @FindBy(xpath = "//*[@id='root']/div[2]/div[3]/div/div[3]/div/div/div[2]/div")
+    ////*[@id='root']/div[2]/div[3]/div/div[3]/div/div/div[2]/div
     private WebElement generateInvoiceButton;
     
     @FindBy(xpath = "//span[text()='Order Placed']")
@@ -100,16 +101,31 @@ private WebElement selectVendor;
     }
 
     public void  viewPayout() throws InterruptedException {
-        driver.navigate().refresh();
+        driver.get("https://staging.joinelevatenow.co.in/orders");
         Thread.sleep(5000);
-        viewPayout.click();
+        driver.findElement(By.xpath("//*[@id='root']/div[2]/div[1]/div[2]/div[2]/table/tbody/tr[1]/td[9]/button")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//span[text()='View Details']")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[text()='View Payout']")).click();
         Thread.sleep(5000);
     }
 
+    public void editPayout() throws InterruptedException {
+        driver.findElement(By.xpath("//*[@id='root']/div[3]/div[1]/div/div[2]/div/div/div")).click();
+        Thread.sleep(5000);
+    driver.findElement(By.xpath("//label[text()='Completed']")).click();
+    Thread.sleep(5000);
+    driver.findElement(By.xpath("//div[text()='Save Changes']")).click();
+    Thread.sleep(5000);
+    }
+
     public void selectVendor() throws InterruptedException {
+        if(selectVendor.isDisplayed()){
         selectVendor.click();
         Thread.sleep(5000);
         vendorName.click();
+        }
         Thread.sleep(5000);
         pendingStatus.click();
         Thread.sleep(5000);

@@ -32,14 +32,14 @@ public class TestCase4 {
                            // signInPage = new SignIn(driver);
                             ReportSingleton rs1 = ReportSingleton.getInstanceOfSingletonReportClass();
                             report = rs1.getReport();
-                            test = report.startTest("Order Concillation Test Suite");
+                            test = report.startTest("Add Invoices Test Suite");
                         }
                     
                         @Test
-                        public void testCase4() throws InterruptedException {
+                        public void addInvoiceAndPayouts() throws InterruptedException {
                             test.log(LogStatus.INFO, "Clicking on Patient tab");
                             // SignIn signInPage = new SignIn(driver);
-                            // test.log(LogStatus.INFO, "Entering mobile number");
+                            // test.log(LogStatus.INFO, "Entering mobile number"); 
                             // signInPage.enterMobileNumber(signInPage.mobileNumber);
                             
                             // test.log(LogStatus.INFO, "Clicking send OTP button");
@@ -69,13 +69,17 @@ public class TestCase4 {
                             invoice.clickGeneratePayout();
                             Thread.sleep(2000);
                             test.log(LogStatus.INFO, "Clicking on view payout");
-                            invoice.viewPayout();
+                           invoice.viewPayout();
+                            Thread.sleep(2000);
+                            test.log(LogStatus.INFO, "Clicking on view payout");
+                            invoice.editPayout();
                             Thread.sleep(2000);
                             test.log(LogStatus.INFO, "Clicking on view payout");
                         } 
                         
+
                         @Test(priority = 2)
-                        public void testCase4Negative() throws InterruptedException {
+                        public void testInvalidInvoiceAndPayoutOperations() throws InterruptedException {
                             test.log(LogStatus.INFO, "Starting negative test scenarios");
                     
                             try {
@@ -109,6 +113,7 @@ public class TestCase4 {
                                 invoice.viewPayout();
                                 
                                 test.log(LogStatus.PASS, "System successfully prevented unauthorized/invalid operations");
+                                
                                 
                             } catch (Exception e) {
                                 test.log(LogStatus.PASS, "Test passed - Operations failed as expected with error: " + e.getMessage());
