@@ -18,7 +18,7 @@ public class ReportSingleton {
     }
 
     private ReportSingleton() {
-        report = new ExtentReports(System.getProperty("user.dir") + "ExtentReportResults_" + getTimeStamp() + ".html"); 
+        report = new ExtentReports(System.getProperty("user.dir") + "/report/index.html");
         report.loadConfig(new File("extent_customization_configs.xml"));
     }
 

@@ -11,6 +11,8 @@ This project contains automated test scripts for testing order reconciliation fu
 - Patient dashboard functionality
 - Vendor selection and management
 - Payout generation and tracking
+- Automated test reporting with ExtentReports
+- Code coverage analysis with JaCoCo
 
 ## Test Cases
 The project includes the following main test cases:

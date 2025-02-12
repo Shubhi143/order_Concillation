@@ -114,22 +114,20 @@ public class TestCase3 {
                         
                         @AfterSuite
                         public static void quitDriver() {
-                            try {
+                         
                                 System.out.println("quit()");
                                 if (driver != null) {
                                 driver.close();
                                 driver.quit();
                                 test.log(LogStatus.PASS, "Driver quit successfully");
-                    }
-                } catch (Exception e) {
-                    test.log(LogStatus.FAIL, "Driver quit failed: " + e.getMessage());
-                } finally {
-                    if (report != null) {
-                report.flush();
-                test.log(LogStatus.INFO, "Report flushed");
-            }
+                        }
+                  
+                        if (report != null) {
+                    report.flush();
+                    test.log(LogStatus.INFO, "Report flushed");
+                }
+            
         }
-    }
 }
 
 

@@ -2,11 +2,8 @@ package ElevateNow.Order.Testcases;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -113,28 +110,25 @@ public class TestCase4 {
                                 invoice.viewPayout();
                                 
                                 test.log(LogStatus.PASS, "System successfully prevented unauthorized/invalid operations");
-                                
+
                                 
                             } catch (Exception e) {
                                 test.log(LogStatus.PASS, "Test passed - Operations failed as expected with error: " + e.getMessage());
                             }
                         }
+                      
                         @AfterSuite
                         public static void quitDriver() {
-                            try {
+                         
                                 System.out.println("quit()");
                                 if (driver != null) {
                                 driver.close();
                                 driver.quit();
                                 test.log(LogStatus.PASS, "Driver quit successfully");
-                    }
-                } catch (Exception e) {
-                    test.log(LogStatus.FAIL, "Driver quit failed: " + e.getMessage());
-                } finally {
-                    if (report != null) {
-                report.flush();
-                test.log(LogStatus.INFO, "Report flushed");
-            }
-        }
-    }
+                        }
+                        if (report != null) {
+                                report.flush();
+                                test.log(LogStatus.INFO, "Report flushed");
+                        }
+                }
 }
