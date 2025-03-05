@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Order {
     private WebDriver driver;
-    private final String url = "https://staging.joinelevatenow.co.in/orders";
+    private final String url = "https://preweb.joinelevatenow.co.in/orders";
 
     @FindBy(xpath="//div[text()='Add Order']")
     private WebElement addOrderButton;

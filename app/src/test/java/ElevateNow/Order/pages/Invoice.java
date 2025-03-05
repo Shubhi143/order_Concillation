@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Invoice {
     private final WebDriver driver;
     
-    String url="https://staging.joinelevatenow.co.in/orders";
+    String url="https://preweb.joinelevatenow.co.in/orders";
     // Web Elements
 // List of Orders (All Order Rows)
 
@@ -159,7 +159,7 @@ Thread.sleep(2000);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[text()='Today']")).click();
         Thread.sleep(5000);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[5]/div[1]/div/div[2]/div/div[5]/div")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[5]/div[1]/div/div[2]/div/div[7]/div")).click();
         Thread.sleep(5000);
     }
         

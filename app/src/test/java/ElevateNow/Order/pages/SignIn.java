@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignIn {
     private WebDriver driver;
-    String url="https://staging.joinelevatenow.co.in/";
+    String url="https://preweb.joinelevatenow.co.in/";
     String OTP="596921";
 
     public String mobileNumber="9643243200";

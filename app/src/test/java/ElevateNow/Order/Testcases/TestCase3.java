@@ -63,6 +63,7 @@ public class TestCase3 {
                             
                             test.log(LogStatus.INFO, "Opening patient dashboard");
                             PatientDashboard patientDashboard = new PatientDashboard(driver);
+                            Thread.sleep(5000);
                             patientDashboard.addOrder();
                              test.log(LogStatus.INFO, "Adding order to patient");
                             test.log(LogStatus.INFO, "Creating new order instance");

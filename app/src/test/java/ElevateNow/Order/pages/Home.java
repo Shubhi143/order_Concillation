@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Home {
 
     
-    String url = "https://staging.joinelevatenow.co.in/patient";
+    String url = "https://preweb.joinelevatenow.co.in/patient";
    WebDriver driver;
    String userName = "Shubhi Testing";
    String mobileNumber = "9955663688";

@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite">
-    <test name="Unit Tests">
+    <parameter name="browser" value="chrome"/>
+    <test name="ElevateNow Order">
         <classes>
-             <class name="ElevateNow.Order.Testcases.TestCase1"/> 
+            <class name="ElevateNow.Order.Testcases.TestCase1"/>
             <class name="ElevateNow.Order.Testcases.TestCase2"/>
-           <class name="ElevateNow.Order.Testcases.TestCase3"/>  
-              <class name="ElevateNow.Order.Testcases.TestCase4"/>   
+            <class name="ElevateNow.Order.Testcases.TestCase3"/>
+            <class name="ElevateNow.Order.Testcases.TestCase4"/>
         </classes>
     </test>
-    <!-- Test Parameters if needed -->
-    <parameter name="browser" value="chrome"/>
-    
-
 </suite>

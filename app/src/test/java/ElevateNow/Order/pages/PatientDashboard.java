@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 public class PatientDashboard {
     
-    private final String url = "hhttps://staging.joinelevatenow.co.in/patient/6472/dashboard";
+    private final String url = "hhttps://preweb.joinelevatenow.co.in/patient/6472/dashboard";
     private WebDriver driver;
 
     String doctorName = "Doctor_onlyfortesting";
@@ -74,31 +74,31 @@ public PatientDashboard(WebDriver driver) throws InterruptedException {
         addOrderButton.click();
         Thread.sleep(5000);
         // Select address
-      addNewAddress.click();
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id='root']/div[2]/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/input")).sendKeys("Banglore");
-        // Click Next after address selection
-        driver.findElement(By.xpath("//*[@placeholder='City']")).sendKeys("Banglore");
-        driver.findElement(By.xpath("//*[@placeholder='State']")).sendKeys("Karnataka");
-        driver.findElement(By.xpath("//*[@placeholder='Type Pincode']")).sendKeys("560001");
-        driver.findElement(By.xpath("//button[text()='Save Address']")).click();
+    //   addNewAddress.click();
+    //     Thread.sleep(5000);
+    //     driver.findElement(By.xpath("//*[@id='root']/div[2]/div[2]/div[2]/div/div[2]/div/div[3]/div[2]/input")).sendKeys("Banglore");
+    //     // Click Next after address selection
+    //     driver.findElement(By.xpath("//*[@placeholder='City']")).sendKeys("Banglore");
+    //     driver.findElement(By.xpath("//*[@placeholder='State']")).sendKeys("Karnataka");
+    //     driver.findElement(By.xpath("//*[@placeholder='Type Pincode']")).sendKeys("560001");
+    //     driver.findElement(By.xpath("//button[text()='Save Address']")).click();
         Thread.sleep(2000);
        driver.findElement(By.xpath("//*[@name='address']")).click();
        Thread.sleep(2000);
         driver.findElement(By.xpath("//button[text()='Next']")).click();
         Thread.sleep(5000);
       
-      // Add another medicine
-    //     driver.findElement(By.xpath("//button[text()='+ Add Another Medicine']")).click();
-    //     Thread.sleep(5000);
+     //Add another medicine
+        driver.findElement(By.xpath("//button[text()='+ Add Another Medicine']")).click();
+        Thread.sleep(5000);
         
-    //     // Search and select second medicine
-    //     driver.findElement(By.xpath("//*[@placeholder='Search medicine']")).sendKeys("Vinglyn ");
-    //     Thread.sleep(2000);
-    //     driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
-    //     Thread.sleep(2000);
-    //     driver.findElement(By.xpath("//span[text()='Select']")).click();
-    //     Thread.sleep(2000);
+      //  Search and select second medicine
+        driver.findElement(By.xpath("//*[@placeholder='Search medicine']")).sendKeys("Erybest 250mg Tablet");
+        Thread.sleep(5000);
+      // driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
+        Thread.sleep(5000);
+       // driver.findElement(By.xpath("//span[text()='Select']")).click();
+        Thread.sleep(5000);
     
         
     //   // Add discount
@@ -138,7 +138,7 @@ public PatientDashboard(WebDriver driver) throws InterruptedException {
 
     //record the payment
     driver.findElement(By.xpath("//div[text()='Record Payment']")).click();
-    Thread.sleep(1000);
+    Thread.sleep(3000);
 
   WebElement mode= driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[2]/div/div/div/div[2]/div[1]/div/select"));
   Select select = new Select(mode);
@@ -169,7 +169,10 @@ Thread.sleep(5000);
         Thread.sleep(5000);
         addDiagonsis.sendKeys("test");
         Thread.sleep(5000);
-        searchMedicine.sendKeys("Blinknac P Tablet");
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/div/div/div/div[1]/span")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@placeholder='Search']")).sendKeys("Tablet");
+       // searchMedicine.sendKeys("Tablet");
         Thread.sleep(5000);
        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div[2]/div/div[3]/div[1]/div[2]/div[4]/input")).click();
        addAdvice.sendKeys("test");
