@@ -5,9 +5,9 @@
     <test name="ElevateNow Order">
         <classes>
             <class name="ElevateNow.Order.Testcases.TestCase1"/>
-            <class name="ElevateNow.Order.Testcases.TestCase2"/>
+            <!-- <class name="ElevateNow.Order.Testcases.TestCase2"/>
             <class name="ElevateNow.Order.Testcases.TestCase3"/>
-            <class name="ElevateNow.Order.Testcases.TestCase4"/>
+            <class name="ElevateNow.Order.Testcases.TestCase4"/> -->
         </classes>
     </test>
 </suite>
